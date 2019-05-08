@@ -12,9 +12,13 @@
 		8C06FE3B2281CF1C00A52060 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C06FE392281CF1C00A52060 /* Main.storyboard */; };
 		8C06FE3D2281CF1D00A52060 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C06FE3C2281CF1D00A52060 /* Assets.xcassets */; };
 		8C06FE402281CF1D00A52060 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C06FE3E2281CF1D00A52060 /* LaunchScreen.storyboard */; };
+		E5AD37176775002ECD634E32 /* Pods_M4_challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40599FD235A4F34B4BD8DB8B /* Pods_M4_challenge.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E9A222E82D6837F7756300E /* Pods-M4-challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-M4-challenge.release.xcconfig"; path = "Target Support Files/Pods-M4-challenge/Pods-M4-challenge.release.xcconfig"; sourceTree = "<group>"; };
+		40599FD235A4F34B4BD8DB8B /* Pods_M4_challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_M4_challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A9AE92108933192C30E9F51 /* Pods-M4-challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-M4-challenge.debug.xcconfig"; path = "Target Support Files/Pods-M4-challenge/Pods-M4-challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		8C06FE322281CF1C00A52060 /* M4-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "M4-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C06FE352281CF1C00A52060 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C06FE372281CF1C00A52060 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5AD37176775002ECD634E32 /* Pods_M4_challenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4DF63340B62D05860D66861F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A9AE92108933192C30E9F51 /* Pods-M4-challenge.debug.xcconfig */,
+				3E9A222E82D6837F7756300E /* Pods-M4-challenge.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		857B34F2347328028462B2E2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40599FD235A4F34B4BD8DB8B /* Pods_M4_challenge.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8C06FE292281CF1C00A52060 = {
 			isa = PBXGroup;
 			children = (
 				8C06FE342281CF1C00A52060 /* M4-challenge */,
 				8C06FE332281CF1C00A52060 /* Products */,
+				4DF63340B62D05860D66861F /* Pods */,
+				857B34F2347328028462B2E2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +96,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8C06FE442281CF1D00A52060 /* Build configuration list for PBXNativeTarget "M4-challenge" */;
 			buildPhases = (
+				BAD7EB8B36DE6B01F757C382 /* [CP] Check Pods Manifest.lock */,
 				8C06FE2E2281CF1C00A52060 /* Sources */,
 				8C06FE2F2281CF1C00A52060 /* Frameworks */,
 				8C06FE302281CF1C00A52060 /* Resources */,
+				4C5E343D5977D81CF103D91E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +156,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4C5E343D5977D81CF103D91E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-M4-challenge/Pods-M4-challenge-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/UnsplashPhotoPicker/UnsplashPhotoPicker.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UnsplashPhotoPicker.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-M4-challenge/Pods-M4-challenge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAD7EB8B36DE6B01F757C382 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-M4-challenge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8C06FE2E2281CF1C00A52060 /* Sources */ = {
@@ -280,6 +354,7 @@
 		};
 		8C06FE452281CF1D00A52060 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A9AE92108933192C30E9F51 /* Pods-M4-challenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -297,6 +372,7 @@
 		};
 		8C06FE462281CF1D00A52060 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E9A222E82D6837F7756300E /* Pods-M4-challenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
