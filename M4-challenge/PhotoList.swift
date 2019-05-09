@@ -8,10 +8,19 @@
 
 import Foundation
 
-class PhotoList {
+class PhotoList: Codable {
     private(set) var list: [Photo] = []
     
     func add(newPhoto: Photo) {
         list.append(newPhoto)
+    }
+    
+    func save() {
+        let jsonEncoder = JSONEncoder()
+        if let savedPhotos = try? jsonEncoder.encode(self) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedPhotos, forKey: "savedPhotos")
+            defaults.synchronize()
+        }
     }
 }
