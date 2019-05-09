@@ -47,8 +47,8 @@
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <outlet property="imageName" destination="z0R-K4-bwt" id="EoN-e3-Gdb"/>
                                     <outlet property="imageView" destination="YgK-D2-N7Y" id="e2X-H0-gVU"/>
+                                    <outlet property="label" destination="z0R-K4-bwt" id="Ffi-Yv-Ewv"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
