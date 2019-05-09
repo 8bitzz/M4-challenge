@@ -12,6 +12,7 @@
 		8C06FE3B2281CF1C00A52060 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C06FE392281CF1C00A52060 /* Main.storyboard */; };
 		8C06FE3D2281CF1D00A52060 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C06FE3C2281CF1D00A52060 /* Assets.xcassets */; };
 		8C06FE402281CF1D00A52060 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C06FE3E2281CF1D00A52060 /* LaunchScreen.storyboard */; };
+		8C173F41228477E0002F14D1 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C173F40228477E0002F14D1 /* PhotoCell.swift */; };
 		E5AD37176775002ECD634E32 /* Pods_M4_challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40599FD235A4F34B4BD8DB8B /* Pods_M4_challenge.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		8C06FE3C2281CF1D00A52060 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C06FE3F2281CF1D00A52060 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C06FE412281CF1D00A52060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C173F40228477E0002F14D1 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +48,6 @@
 				4A9AE92108933192C30E9F51 /* Pods-M4-challenge.debug.xcconfig */,
 				3E9A222E82D6837F7756300E /* Pods-M4-challenge.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -85,6 +86,7 @@
 				8C06FE3C2281CF1D00A52060 /* Assets.xcassets */,
 				8C06FE3E2281CF1D00A52060 /* LaunchScreen.storyboard */,
 				8C06FE412281CF1D00A52060 /* Info.plist */,
+				8C173F40228477E0002F14D1 /* PhotoCell.swift */,
 			);
 			path = "M4-challenge";
 			sourceTree = "<group>";
@@ -210,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C06FE382281CF1C00A52060 /* ViewController.swift in Sources */,
+				8C173F41228477E0002F14D1 /* PhotoCell.swift in Sources */,
 				8C06FE362281CF1C00A52060 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
