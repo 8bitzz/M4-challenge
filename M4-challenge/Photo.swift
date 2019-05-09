@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Photo {
+class Photo: Codable {
     let name: String
     let imageName: String
     

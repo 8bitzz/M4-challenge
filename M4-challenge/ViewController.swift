@@ -17,6 +17,17 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         title = "Photo Gallery"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        
+        let defaults = UserDefaults.standard
+        if let savedPhotos = defaults.object(forKey: "savedPhotos") as? Data {
+            let jsonDecoder = JSONDecoder()
+            do {
+                photos = try jsonDecoder.decode(PhotoList.self, from: savedPhotos)
+            } catch {
+                print("Unable to load data")
+            }
+        }
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -65,6 +76,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         
         let selectedPhoto = Photo(name: "#hashtags", imageName: imageName)
         photos.add(newPhoto: selectedPhoto)
+        photos.save()
         collectionView.reloadData()
         dismiss(animated: true)
     }
