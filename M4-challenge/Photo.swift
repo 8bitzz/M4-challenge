@@ -7,13 +7,22 @@
 //
 
 import Foundation
+import UnsplashPhotoPicker
 
 class Photo: Codable {
-    let name: String
-    let imageName: String
     
-    init(name: String, imageName: String) {
-        self.name = name
-        self.imageName = imageName
+    let libraryPhoto: LibraryPhoto?
+    private(set) var unplashPhoto: UnsplashPhoto?
+    
+    init(libraryPhoto: LibraryPhoto?, unplashPhoto: UnsplashPhoto?) {
+        self.libraryPhoto = libraryPhoto
+        self.unplashPhoto = unplashPhoto
     }
+    
+    func update(newphoto: UnsplashPhoto) {
+        unplashPhoto = newphoto
+    }
+    
 }
+
+
