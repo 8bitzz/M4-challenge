@@ -15,6 +15,7 @@
 		8C173F41228477E0002F14D1 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C173F40228477E0002F14D1 /* PhotoCell.swift */; };
 		8C173F4322848158002F14D1 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C173F4222848158002F14D1 /* Photo.swift */; };
 		8C173F4522848163002F14D1 /* PhotoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C173F4422848163002F14D1 /* PhotoList.swift */; };
+		8C69E64A228575D80073F496 /* LibraryPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C69E649228575D80073F496 /* LibraryPhoto.swift */; };
 		E5AD37176775002ECD634E32 /* Pods_M4_challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40599FD235A4F34B4BD8DB8B /* Pods_M4_challenge.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		8C173F40228477E0002F14D1 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		8C173F4222848158002F14D1 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		8C173F4422848163002F14D1 /* PhotoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoList.swift; sourceTree = "<group>"; };
+		8C69E649228575D80073F496 /* LibraryPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPhoto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				8C06FE412281CF1D00A52060 /* Info.plist */,
 				8C173F40228477E0002F14D1 /* PhotoCell.swift */,
 				8C173F4222848158002F14D1 /* Photo.swift */,
+				8C69E649228575D80073F496 /* LibraryPhoto.swift */,
 				8C173F4422848163002F14D1 /* PhotoList.swift */,
 			);
 			path = "M4-challenge";
@@ -217,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C69E64A228575D80073F496 /* LibraryPhoto.swift in Sources */,
 				8C173F4322848158002F14D1 /* Photo.swift in Sources */,
 				8C173F4522848163002F14D1 /* PhotoList.swift in Sources */,
 				8C06FE382281CF1C00A52060 /* ViewController.swift in Sources */,

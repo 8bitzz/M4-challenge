@@ -9,7 +9,8 @@
 import UIKit
 import UnsplashPhotoPicker
 
-class ViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UnsplashPhotoPickerDelegate {
+    
     private(set) var photos = PhotoList()
     
     override func viewDidLoad() {
@@ -37,7 +38,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotoCell else { return UICollectionViewCell() }
         let photo = photos.list[indexPath.item]
-        configureCell(for: cell, with: photo)
+        cell.configureCell(with: photo)
         return cell
     }
     
@@ -50,8 +51,10 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         alert.addAction(UIAlertAction(title: "Photo Album", style: .default, handler: {(action: UIAlertAction) in
             self.getImage(fromSourceType: .photoLibrary)
         }))
+        alert.addAction(UIAlertAction(title: "Unsplash", style: .default, handler: {(action: UIAlertAction) in
+            self.getUnsplashImage()
+        }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
-        
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -65,6 +68,16 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         }
     }
     
+    func getUnsplashImage() {
+        let configuration = UnsplashPhotoPickerConfiguration(
+            accessKey: "24ef216305fa0581533212861ad725e739a7892330907ddd52a8a34a08e69125",
+            secretKey: "de8b3b6cf74bec62b2d24a3a23c665eb3c2ba4ee7d56ace6fbfb5300109d5221"
+        )
+        let unsplashPhotoPicker = UnsplashPhotoPicker(configuration: configuration)
+        unsplashPhotoPicker.photoPickerDelegate = self
+        present(unsplashPhotoPicker, animated: true, completion: nil)
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
         let imageName = UUID().uuidString
@@ -74,8 +87,9 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
             try? jpegData.write(to: imagePath)
         }
         
-        let selectedPhoto = Photo(name: "#hashtags", imageName: imageName)
-        photos.add(newPhoto: selectedPhoto)
+        let libraryPhoto = LibraryPhoto(name: "#hashtag", imageName: imageName)
+        let newphoto = Photo(libraryPhoto: libraryPhoto, unplashPhoto: nil)
+        self.photos.add(newphoto: newphoto)
         photos.save()
         collectionView.reloadData()
         dismiss(animated: true)
@@ -86,15 +100,22 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         return paths[0]
     }
     
-    func configureCell(for cell: PhotoCell, with photo: Photo) {
-        cell.label.text = photo.name
-        let path = getDocumentsDirectory().appendingPathComponent(photo.imageName)
-        cell.imageView.image = UIImage(contentsOfFile: path.path)
-        cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
-        cell.imageView.layer.borderWidth = 2
-        cell.imageView.layer.cornerRadius = 3
-        cell.layer.cornerRadius = 7
+    //// MARK: - UnsplashPhotoPickerDelegate
+    func unsplashPhotoPicker(_ photoPicker: UnsplashPhotoPicker, didSelectPhotos photos: [UnsplashPhoto]) {
+        print("Unsplash photo picker did select photo(s)")
+        guard let unsplashPhoto = photos.first else {return}
+        let newphoto = Photo(libraryPhoto: nil, unplashPhoto: unsplashPhoto)
+        self.photos.add(newphoto: newphoto)
+        self.photos.save()
+        self.collectionView.reloadData()
+    }
+    
+    func unsplashPhotoPickerDidCancel(_ photoPicker: UnsplashPhotoPicker) {
+        print("Unsplash photo picker did cancel")
     }
 
 }
+
+
+
 

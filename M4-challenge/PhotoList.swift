@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import UnsplashPhotoPicker
 
 class PhotoList: Codable {
-    private(set) var list: [Photo] = []
+    private(set) var list = [Photo]()
     
-    func add(newPhoto: Photo) {
-        list.append(newPhoto)
+    func add(newphoto: Photo) {
+        list.append(newphoto)
     }
     
     func save() {
