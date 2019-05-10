@@ -16,6 +16,10 @@ class PhotoList: Codable {
         list.append(newphoto)
     }
     
+    func remove(at index: Int) {
+        list.remove(at: index)
+    }
+    
     func save() {
         let jsonEncoder = JSONEncoder()
         if let savedPhotos = try? jsonEncoder.encode(self) {
