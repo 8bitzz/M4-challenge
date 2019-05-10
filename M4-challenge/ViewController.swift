@@ -42,17 +42,29 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let alert = UIAlertController(title: "Delete photo", message: "This photo will be no longer in your Gallery.", preferredStyle: .alert)
+        let deleteAction = UIAlertAction(title: "Delete", style: .default) { [weak self] action in
+            self?.photos.remove(at: indexPath.item)
+            self?.photos.save()
+            self?.collectionView.reloadData()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
+    }
+    
     @objc func addButtonTapped() {
         let alert = UIAlertController(title: "", message: "Add new photos from", preferredStyle: .actionSheet)
-        
-        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in
-            self.getImage(fromSourceType: .camera)
+        alert.addAction(UIAlertAction(title: "Unsplash", style: .default, handler: {(action: UIAlertAction) in
+            self.getUnsplashImage()
         }))
         alert.addAction(UIAlertAction(title: "Photo Album", style: .default, handler: {(action: UIAlertAction) in
             self.getImage(fromSourceType: .photoLibrary)
         }))
-        alert.addAction(UIAlertAction(title: "Unsplash", style: .default, handler: {(action: UIAlertAction) in
-            self.getUnsplashImage()
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in
+            self.getImage(fromSourceType: .camera)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
@@ -87,7 +99,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
             try? jpegData.write(to: imagePath)
         }
         
-        let libraryPhoto = LibraryPhoto(name: "#hashtag", imageName: imageName)
+        let libraryPhoto = LibraryPhoto(name: "#collection", imageName: imageName)
         let newphoto = Photo(libraryPhoto: libraryPhoto, unplashPhoto: nil)
         self.photos.add(newphoto: newphoto)
         photos.save()
