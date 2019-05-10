@@ -26,6 +26,7 @@ class PhotoCell: UICollectionViewCell {
     }
     
     private func downloadPhoto(_ photo: UnsplashPhoto) {
+        self.label.text = "#unsplash"
         guard let url = photo.urls[.regular] else { return }
         
         if let cachedResponse = PhotoCell.cache.cachedResponse(for: URLRequest(url: url)),
