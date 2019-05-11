@@ -25,6 +25,11 @@ class PhotoCell: UICollectionViewCell {
         self.layer.cornerRadius = 7
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.imageView.image = nil
+    }
+    
     private func downloadPhoto(_ photo: UnsplashPhoto) {
         self.label.text = "#unsplash"
         guard let url = photo.urls[.regular] else { return }
