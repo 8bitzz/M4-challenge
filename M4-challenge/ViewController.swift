@@ -43,14 +43,20 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let alert = UIAlertController(title: "Delete photo", message: "This photo will be no longer in your Gallery.", preferredStyle: .alert)
-        let deleteAction = UIAlertAction(title: "Delete", style: .default) { [weak self] action in
-            self?.photos.remove(at: indexPath.item)
-            self?.photos.save()
-            self?.collectionView.reloadData()
+//        let alert = UIAlertController(title: "Delete photo", message: "This photo will be no longer in your Gallery.", preferredStyle: .alert)
+//        let deleteAction = UIAlertAction(title: "Delete", style: .default) { [weak self] action in
+//            self?.photos.remove(at: indexPath.item)
+//            self?.photos.save()
+//            self?.collectionView.reloadData()
+//        }
+        let alert = UIAlertController(title: "Edit photo", message: "Change filter or delete this photo", preferredStyle: .alert)
+        let editAction = UIAlertAction(title: "Edit", style: .default) { [weak self] action in
+            if let vc = self?.storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alert.addAction(deleteAction)
+        alert.addAction(editAction)
         alert.addAction(cancelAction)
         present(alert, animated: true)
     }
